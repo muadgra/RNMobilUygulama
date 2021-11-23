@@ -17,16 +17,18 @@ const LoginScreen = () => {
         .catch(error => alert(error.message))
 
     }
-
+    const handleLogin = () => {
+        console.log(email + " " + password);
+    }
     return (
         <KeyboardAvoidingView style = {styles.container} behavior="padding">
             <Image source={require('../../assets/beyazlogo.png')} style= {{width: 200, height: 200,}}/>
             <View styles = {styles.inputContainer}>
-                <Input placeholderName="UserName" on/>
-                <Input placeholderName="Password" show={false}/>
+                <Input placeholderName="E-Mail" value = {email} setValue={setEmail}/>
+                <Input placeholderName="Password" show={false} value={password} setValue={setPassword}/>
             </View>
             <View style={styles.buttonContainer}>
-                <Button text ="Login" email = {email} password = {password} style={styles.loginButton}/>
+                <Button text ="Login" style={styles.loginButton} onPress={handleLogin}/>
                 <Button text ="Register" /*onPress={handleSignUp}*/ />
             </View>
         </KeyboardAvoidingView>
