@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: '#98CADA',
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     loginButton: {
-        backgroundColor: '#64b5f6',
+        backgroundColor: '#75682A',
     },
     buttonContainer: {
         width: '80%',
