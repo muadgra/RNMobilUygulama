@@ -1,10 +1,22 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Text, View } from 'react-native'
 import styles from './HomeScreen.styles.js';
-const HomeScreen = () => {
+import Button from '../../components/Button';
+import {getAuth} from 'firebase/auth';
+const HomeScreen = ({navigation}) => {
+    const logOut = () => {
+        getAuth().signOut()
+        .then(() => {
+            navigation.replace("Login");
+        })
+        .catch(error => alert(error.message));
+    }
+    
     return (
         <View>
-            <Text>Home Screen</Text>
+            <Text style = {styles.home_screen_title}>Home Screen</Text>
+            <Text>Logged User: {getAuth().currentUser?.email}</Text>
+            <Button onPress = {logOut} text = "Log Out"/>
         </View>
     )
 }
