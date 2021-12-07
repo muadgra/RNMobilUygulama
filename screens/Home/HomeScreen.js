@@ -3,6 +3,7 @@ import { Text, View } from 'react-native'
 import styles from './HomeScreen.styles.js';
 import Button from '../../components/Button';
 import {getAuth} from 'firebase/auth';
+
 const HomeScreen = ({navigation}) => {
     const logOut = () => {
         getAuth().signOut()
