@@ -5,9 +5,9 @@ import HomeScreen from './screens/Home/HomeScreen';
 const Stack = createNativeStackNavigator();
 const MainStackNavigator = () => {
     return(
-    <Stack.Navigator>
-        <Stack.Screen options={{headerShown: false}}name="Login" component={LoginScreen}/>
-        <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator >
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false, headerLeft: ()=> null }}/>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false, headerLeft: ()=> null }} />
     </Stack.Navigator>
     );
 }

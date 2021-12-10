@@ -30,7 +30,7 @@ const LoginScreen = ({navigation}) => {
             if(user){
 
                 console.log(user.email);
-                navigation.replace("Home");
+                navigation.navigate("Home");
             }
         })
         return unsubscribe;
@@ -61,6 +61,8 @@ const LoginScreen = ({navigation}) => {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+            setEmail("");
+            setPassword("");
             // ...
         })
         .catch((error) => {
