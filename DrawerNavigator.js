@@ -40,7 +40,7 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={(props) =>  <LogoutButton {...props}  logOut={logOut} />}>
       <Drawer.Screen name="ProductsScreen" component={BottomTabNavigator} options={{ headerShown: true}}/>
-      <Drawer.Screen name="Contact" component={Contact} options={{ headerShown: false}} />
+      <Drawer.Screen name="Contact" component={Contact} options={{ headerShown: true}} />
     </Drawer.Navigator>
   );
 }

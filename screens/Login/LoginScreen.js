@@ -5,6 +5,7 @@ import Input from '../../components/Input/Input.js';
 import Button from '../../components/Button/Button.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
+import { authentication } from '../../firebase.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAGwOaQw0-oedaYbhnfTiv7QVa5fYEJRkA",
@@ -18,18 +19,14 @@ const firebaseConfig = {
 
 
 const LoginScreen = ({navigation}) => {
-    const app = initializeApp(firebaseConfig);
     //const db = firestore(app);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        let auth;
-        auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(authentication, (user) => {
             if(user){
 
-                console.log(user.email);
                 navigation.navigate("Home");
             }
         })
@@ -37,13 +34,11 @@ const LoginScreen = ({navigation}) => {
     }, [])
 
     const handleSignUp = () => {
-        let auth;
-        auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(authentication, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user);
+            
             // ...
         })
         .catch((error) => {
@@ -55,9 +50,7 @@ const LoginScreen = ({navigation}) => {
     
     }
     const handleLogIn = () => {
-        let auth;
-        auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(authentication, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
