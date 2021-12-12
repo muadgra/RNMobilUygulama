@@ -6,9 +6,8 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         margin: 10,
-        backgroundColor: '#eeeeff',
+        backgroundColor: '#BFE2D9',
         flexDirection: 'row',
-        
     },
     image: {
         minWidth: 80,

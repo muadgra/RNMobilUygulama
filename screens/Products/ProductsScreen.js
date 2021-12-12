@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Text, View, FlatList, SafeAreaView, TextInput} from 'react-native';
+import {ImageBackground, View, FlatList, SafeAreaView, TextInput} from 'react-native';
 import {collection, getDocs} from 'firebase/firestore/lite'
 import { db } from "../../firebase";
 import ProductCard from "../../components/ProductCard/Product";
@@ -32,17 +32,20 @@ const ProductsScreen = () => {
 
     const renderProducts = ({item}) => <ProductCard product={item} onClick={() => handleProductSelect()}/>; 
     return(
-        <View style= {styles.container}>
-            <TextInput style = {styles.search_bar} 
-            placeholder="Aramak istediginiz urunu giriniz."
-            value = {searched}
-            onChangeText = {handleSearch}
-            />
-            
-            <FlatList numColumns={2}
-                data={filteredList}
-                renderItem={renderProducts} />
-        </View>
+        <ImageBackground source={require('../../assets/arkaplan.jpg')} style = {styles.container}>
+            <View style= {styles.container}>
+                <View style = {styles.transparent_search_bar}>
+                <TextInput style = {styles.search_bar} 
+                placeholder="Aramak istediginiz urunu giriniz."
+                value = {searched}
+                onChangeText = {handleSearch}
+                />
+                </View>
+                <FlatList numColumns={2}
+                    data={filteredList}
+                    renderItem={renderProducts} />
+            </View>
+        </ImageBackground>
         )
     }
 export default ProductsScreen;

@@ -1,22 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import { Image, KeyboardAvoidingView, View } from 'react-native'
+import { Image, ImageBackground, KeyboardAvoidingView, View } from 'react-native'
 import styles from './LoginScreen.styles.js';
 import Input from '../../components/Input/Input.js';
 import Button from '../../components/Button/Button.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
 import { authentication } from '../../firebase.js';
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAGwOaQw0-oedaYbhnfTiv7QVa5fYEJRkA",
-    authDomain: "dukkanproje.firebaseapp.com",
-    projectId: "dukkanproje",
-    storageBucket: "dukkanproje.appspot.com",
-    messagingSenderId: "909717008381",
-    appId: "1:909717008381:web:06cd55b2009a565fcfb394",
-    measurementId: "G-RZZN3DXS6J"
-  };
-
 
 const LoginScreen = ({navigation}) => {
     //const db = firestore(app);
@@ -64,6 +53,7 @@ const LoginScreen = ({navigation}) => {
         });
     }
     return (
+        <ImageBackground source={require('../../assets/arkaplan.jpg')} style = {styles.container}>
         <KeyboardAvoidingView style = {styles.container} behavior="padding">
             <Image source={require('../../assets/tilsimasilogo.png')} style= {{width: 200, height: 200, marginBottom: 25,}}/>
             <View styles = {styles.inputContainer}>
@@ -75,6 +65,7 @@ const LoginScreen = ({navigation}) => {
                 <Button text ="Register" onPress={handleSignUp} />
             </View>
         </KeyboardAvoidingView>
+        </ImageBackground>
     )
 }
 

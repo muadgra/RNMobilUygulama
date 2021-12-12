@@ -8,8 +8,16 @@ const styles = StyleSheet.create({
         fontSize: 14,
         borderRadius: '5',
         backgroundColor: '#75682A',
+        
     },
-
+    greet_text_container: {
+        paddingTop: 50,
+        alignItems: 'center',
+    },
+    greet_text: {
+        fontWeight: 'bold',
+        fontSize: 20,
+    }
 })
 
 export default styles;

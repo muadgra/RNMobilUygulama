@@ -10,10 +10,12 @@ export default StyleSheet.create({
         borderWidth: 1,
         paddingLeft: 5,
         margin: 5,
-        borderColor: '#009688',
-        backgroundColor: 'white'
+        borderColor: '#2ED4A8',
+        color: 'white',
+    },
+    transparent_search_bar: {
+        backgroundColor: 'rgba(0,0,0,0.6)',
     }
-
 
 
 
