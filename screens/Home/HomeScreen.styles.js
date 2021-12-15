@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     home_screen_title: {
         fontWeight: 'bold',
         fontSize: 14,
-        borderRadius: '5',
+        borderRadius: 5,
         backgroundColor: '#75682A',
         
     },

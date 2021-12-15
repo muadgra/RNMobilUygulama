@@ -17,6 +17,7 @@ const ProductsScreen = () => {
         const productsSnapshot = await getDocs(productsCollection);
         setProducts(productsSnapshot.docs.map(doc => doc.data()));
         setFilteredList(productsSnapshot.docs.map(doc => doc.data()));
+        console.log(products);
     }, []);
 
    const handleSearch = text => {
