@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import {View, Image} from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList} from "@react-navigation/drawer";
 import { useNavigation } from '@react-navigation/native';
 import { getAuth} from "firebase/auth";
@@ -9,7 +9,19 @@ import CreateProduct from "./screens/CreateProduct";
 import {authentication} from './firebase.js';
 const Drawer = createDrawerNavigator();
 
-
+const DrawerItemWithImage = ({onClick, text, image}) => {
+    return(
+      <View style = {{flexDirection:'row'}, {width: 250}}>
+        <Image style= {{width: 20, height: 20}} source={{uri: image}}/>
+        
+        <DrawerItem
+            label= {text}
+            onPress={onClick}
+            
+          />
+      </View>
+    )
+}
 
 function LogoutButton(props) {
   let is_signed, admin_email;
@@ -18,19 +30,25 @@ function LogoutButton(props) {
   return (
     
     <DrawerContentScrollView {...props}>
+      <View style ={{alignItems: 'baseline'}, {justifyContent: 'center'}}>
       <DrawerItemList {...props} />
       {is_signed && admin_email == "mertcangokmen@hotmail.com" &&
-        <DrawerItem
-        label="CreateProduct"
-        onPress={props.createButton}
-      />
+        
+          <DrawerItemWithImage
+          text="Create Product"
+          onClick={props.createButton}
+          image="https://w7.pngwing.com/pngs/119/701/png-transparent-computer-icons-editing-others-angle-logo-edit-icon.png"
+        />
+        
       }
       
       {is_signed &&
-      <DrawerItem
-        label="Logout"
-        onPress={props.logOut}
+      <DrawerItemWithImage
+        text="Logout"
+        onClick={props.logOut}
+        image="https://toppng.com//public/uploads/preview/logout-11551049168o9cg0mxxib.png"
       />}
+      </View>
     </DrawerContentScrollView>
   );
 }

@@ -4,14 +4,15 @@ import {collection, getDocs} from 'firebase/firestore/lite'
 import { db } from "../../firebase";
 import ProductCard from "../../components/ProductCard/Product";
 import styles from './ProductsScreen.styles';
-const ProductsScreen = () => {
+const ProductsScreen = ({navigation}) => {
     const [products, setProducts] = useState([]);
     const [searched, setSearched] = useState("");
     const [filteredList, setFilteredList] = useState([]);
-    const handleProductSelect = () => {
-        {/*navigation.navigate("DetailsScreen", {id}); */}
-        console.log("Navigating to Details");
+
+    const handleProductSelect = (product_title) => {
+        navigation.navigate("DetailScreen", {product_title});
     }
+
     useEffect(async () => {
         const productsCollection = collection(db, 'products');
         const productsSnapshot = await getDocs(productsCollection);
@@ -31,7 +32,7 @@ const ProductsScreen = () => {
        setFilteredList(filtered);
    }
 
-    const renderProducts = ({item}) => <ProductCard product={item} onClick={() => handleProductSelect()}/>; 
+    const renderProducts = ({item}) => <ProductCard product={item} onClick={() => handleProductSelect(item.product_title)}/>; 
     return(
         <ImageBackground source={require('../../assets/arkaplan.jpg')} style = {styles.container}>
             <View style= {styles.container}>
@@ -42,7 +43,7 @@ const ProductsScreen = () => {
                 onChangeText = {handleSearch}
                 />
                 </View>
-                <FlatList numColumns={2}
+                <FlatList numColumns={1}
                     data={filteredList}
                     renderItem={renderProducts} />
             </View>

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Dimensions } from "react-native";
 const styles = StyleSheet.create({
     button: {
         padding: 5,
@@ -8,7 +9,9 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         fontWeight:'bold',
         alignItems: 'center',
-        flex: 1,
+        height: 35,
+        width: 100,
+        marginTop: 10,
     }
 
 })
