@@ -3,7 +3,6 @@ import { ImageBackground, KeyboardAvoidingView, View, TextInput } from "react-na
 import styles from './CreateProduct.style';
 import Button from '../../components/Button/Button';
 import { doc, setDoc } from "firebase/firestore"; 
-import { db } from "../../firebase";
 import { getFirestore } from "firebase/firestore";
 const CreateProduct = () => {
     const [title, setTitle] = useState("");

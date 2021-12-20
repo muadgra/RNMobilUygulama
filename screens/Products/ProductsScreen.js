@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {ImageBackground, View, FlatList, SafeAreaView, TextInput} from 'react-native';
-import {collection, getDocs} from 'firebase/firestore/lite'
+import {collection, getDocs, deleteDoc, query, where, getDoc} from 'firebase/firestore/lite'
 import { db } from "../../firebase";
 import ProductCard from "../../components/ProductCard/Product";
 import styles from './ProductsScreen.styles';
@@ -18,7 +18,7 @@ const ProductsScreen = ({navigation}) => {
         const productsSnapshot = await getDocs(productsCollection);
         setProducts(productsSnapshot.docs.map(doc => doc.data()));
         setFilteredList(productsSnapshot.docs.map(doc => doc.data()));
-        console.log(products);
+        
     }, []);
 
    const handleSearch = text => {

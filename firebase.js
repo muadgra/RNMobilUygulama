@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import { initializeApp } from '@firebase/app';
 import { getAuth } from '@firebase/auth';
 import {getFirestore} from 'firebase/firestore/lite'
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAGwOaQw0-oedaYbhnfTiv7QVa5fYEJRkA",
   authDomain: "dukkanproje.firebaseapp.com",
   projectId: "dukkanproje",
@@ -13,6 +13,6 @@ const firebaseConfig = {
   measurementId: "G-RZZN3DXS6J"
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const authentication = getAuth(app);
 export const db = getFirestore(app);
