@@ -14,7 +14,8 @@ const LoginScreen = ({navigation}) => {
     //const db = firestore(app);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+    const [tokenGecici, setTokenGecici] = useState("");
+    const [deneme, setDeneme] = useState("");
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(authentication, (user) => {
             if(user){
@@ -38,7 +39,7 @@ const LoginScreen = ({navigation}) => {
             alert('Failed to get push token for push notification!');
             return;
           }
-          token = (await Notifications.getDevicePushTokenAsync()).data;
+          token = (await Notifications.getExpoPushTokenAsync()).data;
           console.log(token);
         } else {
           alert('Must use physical device for Push Notifications');
@@ -52,12 +53,13 @@ const LoginScreen = ({navigation}) => {
             lightColor: '#FF231F7C',
           });
         }
+        setTokenGecici(token);
         const db = getFirestore()
-    await setDoc(doc(db, "users", email), {
-         token: token
-        });
-        return token;
-      }  
+        await setDoc(doc(db, "users", email), {
+            token: token
+            });
+            return token;
+        }    
 
     
     const handleSignUp = () => {
@@ -65,8 +67,7 @@ const LoginScreen = ({navigation}) => {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            setEmail("");
-            setPassword("");
+            registerForPushNotificationsAsync();
             // ...
         })
         .catch((error) => {
@@ -83,8 +84,6 @@ const LoginScreen = ({navigation}) => {
             // Signed in 
             const user = userCredential.user;
             registerForPushNotificationsAsync();
-            setEmail("");
-            setPassword("");
             // ...
         })
         .catch((error) => {
