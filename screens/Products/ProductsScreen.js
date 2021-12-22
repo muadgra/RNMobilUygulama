@@ -9,8 +9,9 @@ const ProductsScreen = ({navigation}) => {
     const [searched, setSearched] = useState("");
     const [filteredList, setFilteredList] = useState([]);
 
-    const handleProductSelect = (product_title) => {
-        navigation.navigate("DetailScreen", {product_title});
+    const handleProductSelect = async (item) => {
+        
+        navigation.navigate("DetailScreen", {item});
     }
 
     useEffect(async () => {
@@ -32,7 +33,7 @@ const ProductsScreen = ({navigation}) => {
        setFilteredList(filtered);
    }
 
-    const renderProducts = ({item}) => <ProductCard product={item} onClick={() => handleProductSelect(item.product_title)}/>; 
+    const renderProducts = ({item}) => <ProductCard product={item} onClick={() => handleProductSelect(item)}/>; 
     return(
         <ImageBackground source={require('../../assets/arkaplan.jpg')} style = {styles.container}>
             <View style= {styles.container}>
