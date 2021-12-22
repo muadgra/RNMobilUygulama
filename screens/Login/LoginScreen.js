@@ -19,11 +19,10 @@ const LoginScreen = ({navigation}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(authentication, (user) => {
             if(user){
-
                 navigation.navigate("Home");
             }
         })
-        return unsubscribe;
+        
     }, [])
 
     async function registerForPushNotificationsAsync() {

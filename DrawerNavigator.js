@@ -6,6 +6,7 @@ import { getAuth} from "firebase/auth";
 import Contact from "./screens/Contact/Contact";
 import BottomTabNavigator from "./BottomTabNavigator";
 import CreateProduct from "./screens/CreateProduct";
+import HomeScreen from "./screens/Home/HomeScreen";
 import {authentication} from './firebase.js';
 const Drawer = createDrawerNavigator();
 
@@ -70,6 +71,7 @@ const DrawerNavigator = () => {
 
   return (
     <Drawer.Navigator drawerContent={(props) =>  <LogoutButton {...props}  logOut={logOut} createButton = {createButton}/>}>
+      <Drawer.Screen name="Home" component={HomeScreen} options={{ headerShown: true}}/>
       <Drawer.Screen name="ProductsScreen" component={BottomTabNavigator} options={{ headerShown: true}}/>
       <Drawer.Screen name="Contact" component={Contact} options={{ headerShown: true}} />
     </Drawer.Navigator>

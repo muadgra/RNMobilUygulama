@@ -21,9 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/tilsimasilogo.png",
         "backgroundColor": "#FFFFFF"
-      }
+        
+      },
+      "package": "com.mertcangokmen.tilsimasiatolyesi",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
