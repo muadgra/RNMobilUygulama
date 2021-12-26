@@ -1,15 +1,15 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MainStackNavigator from "./MainStackNavigator";
-import ContactStackNavigator from "./ProductStackNavigator";
-
+import ProductStackNavigator from "./ProductStackNavigator";
+import HomeScreen from "./screens/Home/HomeScreen";
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
     return (
       <Tab.Navigator>
-        <Tab.Screen name="LoginScreen" component={MainStackNavigator} options={{ headerShown: false}}/>
-        <Tab.Screen name="ProductsScreen" component={ContactStackNavigator} options={{ headerShown: false}}/>
+        <Tab.Screen name="Home" component={MainStackNavigator} options={{ headerShown: false}}/>
+        <Tab.Screen name="ProductsScreen" component={ProductStackNavigator} options={{ headerShown: false}}/>
       </Tab.Navigator>
     );
   };

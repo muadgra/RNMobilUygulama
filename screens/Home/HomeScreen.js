@@ -25,7 +25,7 @@ const HomeScreen = ({navigation}) => {
       }),
     });
     
-      
+    
 
     return (
         

@@ -15,14 +15,12 @@ const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [tokenGecici, setTokenGecici] = useState("");
-    const [deneme, setDeneme] = useState("");
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(authentication, (user) => {
             if(user){
                 navigation.navigate("Home");
             }
-        })
-        
+        })    
     }, [])
 
     async function registerForPushNotificationsAsync() {
