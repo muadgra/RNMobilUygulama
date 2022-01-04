@@ -4,13 +4,13 @@ import { initializeApp } from '@firebase/app';
 import { getAuth } from '@firebase/auth';
 import {getFirestore} from 'firebase/firestore/lite'
 export const firebaseConfig = {
-  apiKey: "AIzaSyAGwOaQw0-oedaYbhnfTiv7QVa5fYEJRkA",
-  authDomain: "dukkanproje.firebaseapp.com",
-  projectId: "dukkanproje",
-  storageBucket: "dukkanproje.appspot.com",
-  messagingSenderId: "909717008381",
-  appId: "1:909717008381:web:06cd55b2009a565fcfb394",
-  measurementId: "G-RZZN3DXS6J"
+  apiKey: "***",
+  authDomain: "******",
+  projectId: "********",
+  storageBucket: "*********",
+  messagingSenderId: "*****",
+  appId: "****",
+  measurementId: "*****"
 };
 
 export const app = initializeApp(firebaseConfig);
